@@ -1,7 +1,16 @@
+# Versão do docker-compose
 version: '3.8'
+
+# Define os serviços a serem executados
 services:
+  # Serviço chamado 'app'
   app:
+    # Constrói a imagem Docker a partir do diretório atual ('.')
     build: .
+
+    # Mapeia o diretório local './data' para '/app/data' dentro do contêiner
     volumes:
       - ./data:/app/data
+
+    # Comando a ser executado quando o contêiner for iniciado
     command: ["python3", "/app/fazer_json.py"]
